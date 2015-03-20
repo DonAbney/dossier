@@ -1,4 +1,5 @@
 package com.pillartechnology.dossier
+import com.pillartechnology.dossier.Blog
 
 class Profile {
 
@@ -6,4 +7,5 @@ class Profile {
     }
 
     String name = "Test"
+    Blog blog = new Blog()
 }
