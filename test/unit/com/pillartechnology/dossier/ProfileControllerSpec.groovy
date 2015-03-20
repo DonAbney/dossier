@@ -32,4 +32,5 @@ class ProfileControllerSpec extends Specification {
             actualProfile.name == "Test"
             response.status == OK.value
     }
+    
 }
