@@ -14,7 +14,7 @@ class ProfileController {
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         //respond Profile.list(params), [status: OK]
-        respond new Profile(), [status: OK]
+        respond new Profile(), [formats:['json']]
     }
 
     @Transactional

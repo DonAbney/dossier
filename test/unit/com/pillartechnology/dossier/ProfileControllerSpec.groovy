@@ -32,17 +32,4 @@ class ProfileControllerSpec extends Specification {
             actualProfile.name == "Test"
             response.status == OK.value
     }
-    
-    void "Test the profile model contains a blog entry"() {
-
-        when:"The index action is executed"
-            controller.index()
-
-        then:"The response is correct"
-            def jsonSlurper = new JsonSlurper()
-            def actualProfile = jsonSlurper.parseText(response.text)
-
-            //actualProfile instanceof Profile
-            actualProfile.blog != null
-    }
 }

@@ -1,28 +1,21 @@
 package com.pillartechnology.dossier
 
 import grails.test.spock.IntegrationSpec
-import static org.springframework.http.HttpStatus.*
 import groovy.json.JsonSlurper
 
 class ProfileControllerIntegrationSpec extends IntegrationSpec {
-    ProfileController controller
 
+    void "test profile controller returns a profile with a blog"() {
+        ProfileController profileController
 
-    def setup() {
-    }
-
-    def cleanup() {
-    }
-
-    void "test we are less retarded"() {
-
+        setup:
+            profileController = new ProfileController()
         when:
-            controller = new ProfileController()
+            profileController.index()
 
         then:
             def jsonSlurper = new JsonSlurper()
-            def actualProfile = jsonSlurper.parsetext(response.text)
-
-            actualProfile.name == "Test"
+            def actualProfile = jsonSlurper.parseText(profileController.response.text)
+            actualProfile.blog != null
     }
 }
