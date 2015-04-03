@@ -9,12 +9,12 @@ import spock.lang.Specification
 @TestFor(Blog)
 class BlogSpec extends Specification {
 
-    def setup() {
-    }
+    def blog
 
-    def cleanup() {
-    }
-
-    void "test something"() {
+    void "blog should always have a uri"() {
+        when:
+            blog = new Blog("Some URL")
+        then: 
+            blog.uri == "Some URL"
     }
 }
